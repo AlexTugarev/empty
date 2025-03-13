@@ -1,9 +1,17 @@
 {
 	"name": "empty",
-
 	// Use 'dockerFile' if you need to create a Dockerfile.
-	"image": "mcr.microsoft.com/devcontainers/base:latest",
-
+	// "image": "mcr.microsoft.com/devcontainers/base:latest",
+	// "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+	"dockerFile": "Dockerfile",
+	"runArgs": [
+		"--privileged",
+		"--security-opt=seccomp=unconfined",
+		"--network=host"
+	],
+	"containerUser": "root",
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {}
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	}
 }
